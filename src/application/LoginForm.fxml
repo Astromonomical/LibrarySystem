@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController.java">
+   <top>
+      <Label text="Login to Your Account" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Calibri" size="40.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <VBox prefHeight="152.0" prefWidth="600.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextField fx:id="usernameTxt" labelFloat="true" promptText="Username">
+               <VBox.margin>
+                  <Insets left="35.0" right="35.0" top="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField labelFloat="true" promptText="Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="35.0" right="35.0" />
+               </VBox.margin>
+            </JFXPasswordField>
+            <JFXButton alignment="CENTER" prefHeight="57.0" prefWidth="378.0" style="-fx-background-color: #5E8FE6;" text="Login">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXButton>
+            <Hyperlink text="Forgot Password?">
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </Hyperlink>
+         </children>
+         <BorderPane.margin>
+            <Insets left="100.0" right="100.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
