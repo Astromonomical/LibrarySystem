@@ -38,8 +38,6 @@ public class DatabaseHandle {
                 try {
                         // Create a connection
                         con = DriverManager.getConnection(URL);
-
-                        System.out.println("Connection Established!");
                 } catch (SQLException e) {
                         System.out.println(e.getMessage());
                 }
