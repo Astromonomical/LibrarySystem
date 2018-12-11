@@ -8,8 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -66,10 +64,31 @@ public class LoginController extends Application {
 
                 if (verified) {
                         //Login
+                        changeToMenu((Stage) passwordTxt.getScene().getWindow());
                 } else {
                         // Don't login
                         FxDialogs.showError("Unsuccesful Login", "Username or" +
                                 " password incorrect, please try again");
+                }
+        }
+
+        /**
+         * Changes the current stage to the main menu
+         * @param stage The stage to switch to main menu
+         */
+        private void changeToMenu(Stage stage) {
+                try {
+                        BorderPane root =
+                                FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource(
+                                        "application/MenuForm.fxml")));
+
+                        // Load root into the stage
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                        stage.setMaximized(true);
+                } catch (IOException e) {
+                        e.printStackTrace();
                 }
         }
 }
