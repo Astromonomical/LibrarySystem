@@ -21,7 +21,6 @@ public class DatabaseHandle {
                         // Get connection
                         Connection con = connect();
                         PreparedStatement sql = con.prepareStatement(query);
-
                         // Return results
                         return sql.executeQuery();
                 } catch (SQLException e) {
