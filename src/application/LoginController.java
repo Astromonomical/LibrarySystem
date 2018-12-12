@@ -9,8 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import system.ActiveUser;
+import system.DatabaseHandle;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.Objects;
 
 /**
@@ -63,10 +65,14 @@ public class LoginController extends Application {
         private void handleLoginBtn() {
                 boolean verified = LoginFunctions.verify(usernameTxt.getText(),
                         passwordTxt.getText());
+                String username = usernameTxt.getText();
 
                 if (verified) {
-                        //Login
-                        ActiveUser.setAcc(LoginFunctions.compileAccount())
+                        //Loginadmin
+                        ResultSet user = DatabaseHandle.getTuple("Account " +
+                                "WHERE username='" + username + "'");
+
+                        ActiveUser.constructAccount(user);
                         changeToMenu((Stage) passwordTxt.getScene().getWindow());
                 } else {
                         // Don't login
@@ -89,7 +95,7 @@ public class LoginController extends Application {
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
                         stage.show();
-                        stage.setMaximized(true);
+                        stage.centerOnScreen();
                 } catch (IOException e) {
                         e.printStackTrace();
                 }

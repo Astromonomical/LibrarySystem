@@ -1,5 +1,8 @@
 package system;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  * Stores information on the active user
  * @author Scott Simmons
@@ -23,5 +26,15 @@ public class ActiveUser {
          */
         public static void setAcc(Account activeAccount) {
                 account = activeAccount;
+        }
+
+        public static void constructAccount(ResultSet rs) {
+                try {
+                        account = new Account(rs.getString(1), rs.getString(2),
+                                String.valueOf(rs.getInt(3)), rs.getDouble(4),
+                                rs.getString(5));
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
         }
 }

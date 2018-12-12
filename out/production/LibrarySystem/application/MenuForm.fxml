@@ -14,20 +14,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" stylesheets="@MenuStyle.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" stylesheets="@MenuStyle.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <top>
       <Pane prefHeight="121.0" prefWidth="1400.0" style="-fx-background-color: #1976d2;" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="113.0" prefWidth="528.0" spacing="10.0">
+            <HBox prefHeight="113.0" prefWidth="1241.0" spacing="10.0">
                <children>
-                  <ImageView fitHeight="82.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileImg" fitHeight="82.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets left="15.0" top="15.0" />
                      </HBox.margin>
                   </ImageView>
                   <VBox prefHeight="113.0" prefWidth="341.0" spacing="20.0">
                      <children>
-                        <Label text="Username" textFill="WHITE">
+                        <Label fx:id="usernameLbl" text="Username" textFill="WHITE">
                            <font>
                               <Font size="27.0" />
                            </font>
@@ -35,16 +35,24 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Balance" textFill="WHITE">
+                        <Label fx:id="balanceLbl" text="Balance" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
+                  <Label text="Library System" textFill="WHITE">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
-            <JFXButton id="logoutBtn" layoutX="1262.0" layoutY="13.0" prefHeight="95.0" prefWidth="100.0" text=" " />
+            <JFXButton id="logoutBtn" fx:id="logoutBtn" buttonType="RAISED" layoutX="1262.0" layoutY="13.0" prefHeight="95.0" prefWidth="98.0" text=" " />
          </children>
       </Pane>
    </top>

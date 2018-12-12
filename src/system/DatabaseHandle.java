@@ -45,7 +45,12 @@ public class DatabaseHandle {
                 return con;
         }
 
-        private static ResultSet getTuple(String fields) {
+        /**
+         * Returns a tuple from the table
+         * @param fields SQL after FROM
+         * @return Matching tuples
+         */
+        public static ResultSet getTuple(String fields) {
                 String query = "SELECT * FROM " + fields;
 
                 try {
@@ -54,6 +59,9 @@ public class DatabaseHandle {
                         PreparedStatement sql = con.prepareStatement(query);
                         // Return results
                         return sql.executeQuery();
+                } catch(SQLException e) {
+                        System.out.println(e.getMessage());
+                        return null;
                 }
         }
 }
