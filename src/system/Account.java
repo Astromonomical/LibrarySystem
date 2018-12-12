@@ -8,7 +8,7 @@ public class Account {
         // The userID assocaited with this account (1 to 1)
         private String userID;
         // The balance of this account
-        private String balance;
+        private double balance;
         // The filepath to this account's avatar
         private String avatar;
         // The filepath to the avatars folder
@@ -25,7 +25,7 @@ public class Account {
          * @param avatar Avatar filepath
          */
         public Account(String username, String password, String userID,
-                       String balance, String avatar) {
+                       double balance, String avatar) {
                 this.username = username;
                 this.password = password;
                 this.userID = userID;
@@ -53,7 +53,7 @@ public class Account {
          * Returns the balance
          * @return balance
          */
-        public String getBalance() {
+        public double getBalance() {
                 return balance;
         }
 

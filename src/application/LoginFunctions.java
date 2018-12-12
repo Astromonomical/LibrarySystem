@@ -1,10 +1,17 @@
 package application;
 
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import system.Account;
 import system.DatabaseHandle;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 /**
  * Handles the functions and validation of the login form
@@ -31,5 +38,11 @@ class LoginFunctions {
                 }
 
                 return false;
+        }
+
+        public static Account compileAccount(String username, String password,
+                                      String userID,
+                                      double balance, String avatar) {
+                return new Account(username, password, userID, balance, avatar);
         }
 }

@@ -45,7 +45,15 @@ public class DatabaseHandle {
                 return con;
         }
 
-        public static void main(String[] args) {
+        private static ResultSet getTuple(String fields) {
+                String query = "SELECT * FROM " + fields;
 
+                try {
+                        // Get connection
+                        Connection con = connect();
+                        PreparedStatement sql = con.prepareStatement(query);
+                        // Return results
+                        return sql.executeQuery();
+                }
         }
 }

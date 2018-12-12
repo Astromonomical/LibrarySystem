@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import system.ActiveUser;
+
 import java.io.IOException;
 import java.util.Objects;
 
@@ -64,6 +66,7 @@ public class LoginController extends Application {
 
                 if (verified) {
                         //Login
+                        ActiveUser.setAcc(LoginFunctions.compileAccount())
                         changeToMenu((Stage) passwordTxt.getScene().getWindow());
                 } else {
                         // Don't login
