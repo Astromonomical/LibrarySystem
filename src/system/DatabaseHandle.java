@@ -64,4 +64,31 @@ public class DatabaseHandle {
                         return null;
                 }
         }
+
+        /**
+         * Runs a given query on the database
+         * @param query Query
+         * @return Result set
+         */
+        public static ResultSet performQuery(String query) {
+                try {
+                        Connection con = connect();
+                        PreparedStatement sql = con.prepareStatement(query);
+                        return sql.executeQuery();
+                } catch(SQLException e) {
+                        System.out.println(e.getMessage());
+                        throw new IllegalArgumentException("SQL Error");
+                }
+        }
+
+        public static void dbInsert(String query) {
+                try {
+                        Connection con = connect();
+                        PreparedStatement sql = con.prepareStatement(query);
+                        sql.execute();
+                } catch(SQLException e) {
+                        System.out.println(e.getMessage());
+                        throw new IllegalArgumentException("SQL Error");
+                }
+        }
 }
